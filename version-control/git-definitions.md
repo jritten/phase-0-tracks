@@ -1,4 +1,4 @@
-# Git Definitions:
+# Git Definitions
 
 * What is version control? Version Control is a system that keeps track of every change to a file over time. These early versions can be restored and are used by software developers for source code. 
 * Why is it useful? Version Control tracks changes in your code and manages multiple authors.
