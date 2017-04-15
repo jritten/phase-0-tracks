@@ -1,0 +1,33 @@
+/* ID as a Selector */
+section#contact-info{
+	font-size: .8em;
+}
+
+/* "job" Class as a Selector */
+.job{
+	background-color: #e9e5dc;
+    border-radius: 5px;
+	padding: 10px;
+	margin-top: 10px;
+	width: 80%;
+}
+
+/* use Class created as Selector */
+.accomplishments{
+	font-size: .8em;
+}
+
+/* PseudoSelector*/
+.featured{
+	color: orange;
+}
+
+/* child element of another element */
+.volunteer-gig{
+	background-color: #e9e5dc;
+    border-radius: 5px;
+	padding: 10px;
+	margin-top: 10px;
+	width: 80%;
+}
+
