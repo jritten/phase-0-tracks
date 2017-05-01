@@ -45,37 +45,33 @@
 # except for 0 and 1 we started with
 # print results in an array
 
-# def fib(bit)
-# 	fib_array = [0]
-# 	x = 0
-# 	y = 1
-# 	z = 0
-# 	if bit >= 2
-# 		fib_array = [*1..bit]
-# 			until fib_array.count
-# 				z = x + y
-# 				y = x
-# 				z = y 
-# 				fib_array << j
-# 			end
-# 		end
-# 	p fib_array
-# end
+def fib_method(number)
 
-# fib(100)
+	fib_array = [0, 1]
+	index = 0
 
-def fib(count)
-	fib_array = [*0, 1..number[z]]
-	until fib_array.count > count
-		number[0] = 0
-		number[1] = 1
-		number[z] = number[-1] + number[-2]
-		number[z] = number[-1]
-		fib_array << number[-1]
-		fib(count) == number[-1]
+	while index < number
+		fib_number = fib_array[-1] + fib_array[-2]
+		fib_array << fib_number
+		index += 1
 	end
-p fib(count)
+
+	fib_100 = 218922995834555169026
+
+	if fib_array[-1] == fib_100
+		puts "Correct!"
+	elsif index == number
+		puts "Fibonacci Sequence: "
+		p fib_array
+		
+	end
+
 end
 
-fib(100)
+fib_method(100)
+
+
+
+
+
 
