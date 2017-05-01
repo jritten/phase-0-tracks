@@ -3,8 +3,10 @@ body {
 }
 
 main {
-  width: 756px;
-  float: right;
+  width: 75%;
+  padding-left: .75em;
+  position: absolute;
+  right: 60px;
 }
 
 blockquote {
@@ -19,8 +21,8 @@ cite {
 }
 
 #external-links {
-  width: 200px;
-  float: left;
+  width: 20%;
+  position: absolute;
 }
 
 #external-links ul {
@@ -63,4 +65,3 @@ figcaption {
     float: left;
   }
 }
-
