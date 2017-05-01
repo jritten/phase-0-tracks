@@ -70,7 +70,6 @@ state_capitals.each do |state, capital|
 	puts "#{capital} is the capital of #{state}."
 end
 
-
 # Release 2: Use the Documentation
 
 # Example # 1
@@ -91,7 +90,6 @@ test_scores.select! { |num| num.even? }
 puts "Even Test Scores: "
 p test_scores
 
-
 # Example # 3
 
 scores = [97, 95, 93, 92, 89, 88, 86, 85, 82, 81]
@@ -100,3 +98,109 @@ p scores
 scores.delete_if { |score| score < 90 }
 puts "All Scores Better than 90%: "
 p scores
+
+
+# Release 1: Use .each, .map, and .map!
+
+cars_maufacturers = [
+  "General Motors",
+  "Ford",
+  "Dodge",
+  "Renault",
+  "Aston Martin"
+]
+
+motorcycles = {
+  "Japan" => "Yamaha",
+  "the UK" => "Triumph",
+  "the US" => "Buell"
+}
+
+cars_maufacturers.each do |car_makers|
+  puts "What do you think about cars made by #{car_makers}."
+end
+
+motorcycles.each do |build_local, company|
+  puts "The company #{company} is manufactured in #{build_local}."
+end
+
+# crappy_motorcycles = motorcycles.map {|build_local, company| build_local <<
+# " but crappy" }
+
+cars_maufacturers.map! {|car_makers| car_makers << " but crappy"}
+
+p cars_maufacturers
+
+# Release 2: Use the Documentation
+
+# 1: Array
+example_array = [1, 25, 36, 14, 32, 3, 7, 2]
+example_array.delete_if{|integers| integers < 10}
+p example_array
+
+example_array = [1, 25, 36, 14, 32, 3, 7, 2]
+example_array.delete_at(1)
+p example_array
+
+# 1: Hash
+
+example_hash = {
+  "a" => 1,
+  "b" => 2,
+  "c" => 3
+}
+example_hash.delete_if{|key| key > "b"}
+p example_hash
+
+example_hash = {
+  "a" => 1,
+  "b" => 2,
+  "c" => 3
+}
+example_hash.delete_if{|key, value| value <= 2}
+p example_hash
+
+# 2: Array
+
+example_array = [1, 25, 36, 14, 32, 3, 7, 2]
+new_array = [example_array.select{ |num| num.even? }]
+p new_array
+
+example_array = [1, 25, 36, 14, 32, 3, 7, 2]
+new_array = [example_array.select{ |num| num > 10 }]
+p new_array
+
+# 2: Hash
+
+example_hash = {
+  "a" => 1,
+  "b" => 2,
+  "c" => 3
+}
+new_hash = example_hash.select{|key, value| value > 2}
+p new_hash
+
+example_hash = {
+  "a" => 1,
+  "b" => 2,
+  "c" => 3
+}
+new_hash = example_hash.select{|key| key < "b"}
+p new_hash
+
+
+# 3: Array
+
+example_array = [1, 25, 36, 14, 32, 3, 7, 2]
+new_array = [example_array.take_while{ |num| num < 30 }]
+p new_array
+
+# 4
+
+example_array = [1, 25, 36, 14, 36, 32, 3, 7, 2]
+example_array.delete(36)
+p example_array
+
+example_array = [1, 25, 36, 14, 36, 32, 3, 7, 2]
+example_array.delete_at(3)
+p example_array
