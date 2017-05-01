@@ -1,3 +1,6 @@
+# Challenge 5.1: Using Ruby Documentation
+# Release 1: To Catch a Method
+
 # Replace in the "<???>" with the appropriate method (and arguments, if any).
 # Uncomment the calls to catch these methods red-handed.
 
