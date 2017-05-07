@@ -117,23 +117,49 @@
 module Shout
 # declare your module
 
-	def self.yell_angrily(words)
-		words + "!!!" + " :("
-	end
+	#def self.yell_angrily(words)
+	#	words + "!!!" + " :("
+	#end
 
-	def self.yelling_happily(words)
-		words + "!" + " :D"
-	end
+	#def self.yelling_happily(words)
+	#	words + "!" + " :D"
+	#end
 	# add a yelling_happily method to the module
+
+	def shout(words, punctuation, emoji)
+		words + punctuation + emoji
+	end
+	# mixin version of module
 end
 
+class Angry
+	include Shout
+end
 
+class Happy
+	include Shout
+end
 
 #require_relative 'shout' => true
 #Shout.singleton_methods => []
 # load the module
 
-p Shout.yell_angrily("coding is f*cking great")
-p Shout.yelling_happily("coding is f*cking great")
+# p Shout.yell_angrily("coding is f*cking great")
+# p Shout.yelling_happily("coding is f*cking great")
 # add driver code underneath your module 
 
+angry = Angry.new
+p angry.shout("I f*cking hate coding", "!!!", " >(")
+
+happy = Happy.new
+p happy.shout("I f*cking love coding", "!", " ;)")
+
+# Release 3: Convert a Standalone Module to a Mixin
+
+# 1. Comment out the old code in shout.rb, and make a 
+# mixin version of the Shout module instead. 
+# 2. Write two classes representing anything that might shout, 
+# and include the Shout module in those classes.
+# 3. Test your work by adding driver code at the bottom of the 
+# file that instantiates instances of your classes and calls 
+# the two module methods on each instance.
