@@ -1,3 +1,8 @@
+# Challenge 6.5: Testing a Class with RSpec
+# Release 3: Write a Class to Satisfy Tests
+
+require_relative 'list'
+
 describe TodoList do
   let(:list) { TodoList.new(["do the dishes", "mow the lawn"]) }
 
@@ -16,6 +21,7 @@ describe TodoList do
   end
 
   it "retrieves an item by index" do
+    list.retrieve_item[0]
     expect(list.get_item(0)).to eq "do the dishes"
   end
 end
