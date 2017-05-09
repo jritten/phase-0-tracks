@@ -18,73 +18,74 @@
 class Santa
 
 # 3.
-	def initialize#(gender, ethnicity)
+	def initialize(gender, ethnicity)
 		#p "Initializing Santa instance ..."
 		@gender
 		@ethnicity 
 		@age = 0
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
 		p "Initializing Santa instance ..."
-		puts ""
+
 	end
 # 1.
 	def speak
-		puts "Ho, ho, ho! Haaaappy holidays!"
-		puts ""
+		p "Ho, ho, ho! Haaaappy holidays!"
+
 	end
 
 # 2.
 	def eat_milk_and_cookies(cookie)
-		puts "What's your favorite cookie?"
-		cookie = gets.chomp.downcase
-		puts "That was a good #{cookie} cookie!" 
+		#p "What's your favorite cookie?"
+		#cookie = gets.chomp.downcase
+		p "That was a good #{cookie} cookie!" 
 	end
 
 	def gender=(gender_choice)
-		puts "What gender do you most identify with?"
-		gender_choice = gets.chomp.capitalize
 		@gender = gender_choice
 	end
 
+	def gender
+		@gender
+	end
+
 	def ethnicity=(ethnic_choice)
-		puts "What ethnicity do you most identify with?"
-		ethnic_choice = gets.chomp.capitalize
 		@ethnicity = ethnic_choice
 	end
 
 	def ethnicity
-		return @ethnicity
+		#return @ethnicity
+		@ethnicity
 	end
 
-	def celebrate_birthday=(new_age)
-		new_age = 
-		@age = new_age +=1
+	def celebrate_birthday
+		@age += 1
 	end
 
 	def age
-		return @age
+		#return @age
+		@age
 	end
 
-	def get_mad_at=(reindeer_name)
-		reindeer_array = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-		index = 0
-		while index <reindeer_array.length
-			index_number = reindeer_array
-
-			reindeer_name[index] == 0
+	def get_mad_at(reindeer_name)
+		#reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
+		# choose a reindeer name, move that reindeer to the end of the array
+		if @reindeer_ranking.include?(reindeer_name)
+			@reindeer_ranking.delete(reindeer_name)
+			@reindeer_ranking.push(reindeer_name)
+		else
+			p "Sorry, #{reindeer_name} isn't one of Santa's reindeers."
+		end
+		@reindeer_ranking
 	end
-
-
 
 	def about
-		puts ""
-		puts "Gender: #{@gender}"
-		puts "Ethnicity: #{@ethnicity}"
-		puts "Reindeer Ranking: #{@reindeer_ranking}"
-		puts "Age: #{@age}"
+		p "Gender: #{@gender}"
+		p "Ethnicity: #{@ethnicity}"
+		p "Reindeer Ranking: #{@reindeer_ranking}"
+		p "Age: #{@age}"
 	end
 
-end
+#end
 
 # 4. 
 
@@ -95,21 +96,25 @@ end
 
 # Call the Methods:
 
-santa = Santa.new#("gender", "ethnicity")
+santa = Santa.new("female", "jewish")
 
 santa.speak 
 # prints "Ho, ho, ho! Haaaappy holidays!"
 
-santa.eat_milk_and_cookies("cookie")
+santa.eat_milk_and_cookies("snickerdoodle")
 # prints "That was a good #{cookie} cookie!" 
 
-santa.gender = "#{gets.chomp}"
+santa.gender
 # prints "What gender do you most identify with?"
 
-santa.ethnicity = "#{gets.chomp}"
+santa.ethnicity
 # prints "What ethnicity do you most identify with?"
 
-santa.celebrate_birthday = "#{gets.chomp}"
+santa.celebrate_birthday
+# prints "Age: 1"
+
+santa.get_mad_at("Vixen")
+# prints "Vixen" at end of @reindeer_ranking array
 
 santa.about
 # prints attributes
@@ -118,33 +123,32 @@ santa.about
 
 	def santa_array
 	# define a method
+	genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+	ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
 
 	santas = []
 	# create an empty array
 		250.times do
-			santas << Santa.new
+			santas << Santa.new(genders.sample, ethnicities.sample)
 		end
 
-	#genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
-	#ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
-
-		santas.each do |instance|
+	santas.each do |instance|
 		# loop through the array
-			santa.speak
-			santa.eat_milk_and_cookies("cookie")
-			santa.gender
-			santa.ethnicity
-			santa.about			
+			#santa.speak
+			#santa.eat_milk_and_cookies("cookie")
+			#santa.gender
+			#santa.ethnicity
+			#santa.about			
 			# call on each method
+			instance.about
 		end
-		p santas
-		# print the array
+
 	end
 
-#santa.santa_array
-# call the method
+santa.santa_array
+# prints santas array
 
-#end
+end
 # close class Santa
 
 
@@ -293,5 +297,3 @@ santa.about
 # No need to store your Santas in a data structure, but your program should 
 # print out the attributes of each Santa using the instance methods that 
 # give you access to that data.
-
-#333.times do 
