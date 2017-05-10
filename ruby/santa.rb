@@ -17,11 +17,14 @@
 
 class Santa
 
+	attr_reader :age
+	attr_accessor :gender, :ethnicity, :reindeer_ranking
+
 # 3.
 	def initialize(gender, ethnicity)
 		#p "Initializing Santa instance ..."
-		@gender
-		@ethnicity 
+		@gender = gender
+		@ethnicity = ethnicity
 		@age = 0
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
 		p "Initializing Santa instance ..."
@@ -44,18 +47,19 @@ class Santa
 		@gender = gender_choice
 	end
 
-	def gender
-		@gender
-	end
+	#def gender
+		#return @gender
+	#	@gender
+	#end
 
 	def ethnicity=(ethnic_choice)
 		@ethnicity = ethnic_choice
 	end
 
-	def ethnicity
+	#def ethnicity
 		#return @ethnicity
-		@ethnicity
-	end
+	#	@ethnicity
+	#end
 
 	def celebrate_birthday
 		@age += 1
