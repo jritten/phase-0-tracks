@@ -1,13 +1,44 @@
 # GPS 3.1: Ruby
-
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge by myself.
+# I spent [#] hours on this challenge.
 
-# EXPLANATION OF require_relative
-#
-#
+# RELEASE 0: RUN THE CODE
+# Look at the my_solution.rb file. Look at the output. 
+# Look at the input (it's in the state_data.rb file). 
+# Explain what the program is doing.
+
+# RELEASE 1: REQUIRE_RELATIVE
+# Write a comment explaining the require_relative statement. 
+# What does it do? How does it work?
+# How does it differ from require?
+
+# RELEASE 3: COMMENT EACH METHOD
+# Comment each method (above the method) and define 
+# what it is responsible for doing. 
+
+# RELEASE 5: REFACTOR VIRUS_EFFECTS
+# First, ONLY look at the virus_effects method. 
+# (Do not look at predicted_deaths or speed_of_spread themselves.) 
+# It's a short but deceptive method that isn't quite DRY. 
+# Consider the scope of instance variables to determine what could be 
+# refactored. Once you figure out what the issue is, you'll need to 
+# edit the predicted_deaths and speed_of_spread methods.
+
+# RELEASE 6: PRIVATE
+# What is the purpose of "private"? What happens if you move it above 
+# virus_effects? When would you want to use this method?
+
+# RELEASE 7: REFACTOR
+# Refactor the private methods predicted_deaths and speed_of_spread. 
+# How can you make them more DRY?
+# As an FYI, it's probably not the best decision to combine these methods 
+# even though they are similar because they are responsible for different 
+# things. If the way to calculate either of these changed and you had 
+# combined them, they would be much more difficult to separate.
+
+
 require_relative 'state_data'
 
 class VirusPredictor
@@ -87,4 +118,20 @@ alaska.virus_effects
 
 #=======================================================================
 # Reflection Section
-Contact GitHub API Training Shop Blog About
+
+# RELEASE 8: REFLECT
+# What are the differences between the two different hash syntaxes 
+# shown in the state_data file?
+# What does require_relative do? How is it different from require?
+# What are some ways to iterate through a hash?
+# When refactoring virus_effects, what stood out to you about the 
+# variables, if anything?
+# What concept did you most solidify in this challenge?
+
+# Release 9: Submit
+# Go through your Git workflow to create a pull request and merge it 
+# to the master. Don't forget to clean up your old branches. Make sure 
+# you can see your code on your remote repository. 
+
+# Release 10: Give Feedback to Your Pair
+# Make sure it's actionable, specific, and kind.
