@@ -1,4 +1,17 @@
 # GPS 3.1: Ruby
+# Virus Predictor
+
+# RELEASE 2: ANALYZE STATE_DATA
+# Take a look at the state_data.rb file. What is going on with this hash? 
+# What does it have in it? (HINT: There are two different syntax used for 
+# hashes here. What's the difference?) 
+# I refer to this giant hash as a "hashy hash;" why do you think that is? 
+# What kind of variable is STATE_DATA, and what's its scope?
+
+# RELEASE 4: IMPLEMENT A NEW FEATURE
+# Right now this is only running a report for 4 states, and it's not 
+# incredibly DRY. Create a report for all 50 states in a DRY way. 
+# Does this belong inside the class or outside of it? Why?
 
 #population density is number of people per square mile as of 2012
 #this data is updated every year with estimates from a 10 year census
