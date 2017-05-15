@@ -86,7 +86,7 @@ total_employees = gets.chomp.to_i
 
 # Vampire Booleans #
 
-    vampire = nil
+  vampire = nil
 	while vampire == nil
 
 		if mortal_age && (garlic_choice || mortality)
@@ -132,6 +132,7 @@ total_employees = gets.chomp.to_i
 #	vampire
 
 # Release 4: Check for Suspicious Allergies #
+
 # Suspicious Allergy Input Loop #
 
 	loop
@@ -155,7 +156,6 @@ total_employees = gets.chomp.to_i
 
 #	allergy
 
-
 	employees += 1
 
 	end
@@ -165,6 +165,5 @@ total_employees = gets.chomp.to_i
 puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
 
 end
-
 
 vampires
