@@ -42,6 +42,7 @@
 require_relative 'state_data'
 
 class VirusPredictor
+  attr_reader :state, :population, :population_density
 
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
@@ -50,8 +51,8 @@ class VirusPredictor
   end
 
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths#(@population_density, @population, @state)
+    speed_of_spread#(@population_density, @state)
   end
 
   private
