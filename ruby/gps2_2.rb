@@ -1,5 +1,8 @@
 # GPS 2.2: Ruby
 # paired with @lindsayrmaher
+# paired with @hannie
+
+# https://repl.it/IS6o/3
 
 # Release 0: Pseudocode
 
@@ -67,7 +70,7 @@ static_grocery_list = {}
 
 end
 
-grocery_hash = list_builder("Bread,Eggs,Cheese") #grocery_list
+grocery_hash = list_builder("Bread, Eggs, Cheese") #grocery_list
 
 
 # Method to Add an Item to a List:
@@ -87,7 +90,7 @@ def add_item(list_hash, item, quantity)
 		list_hash[item] = quantity
 	end
 
-# p list_hash
+	return list_hash
 
 end
 
@@ -107,7 +110,7 @@ add_item(grocery_hash, "Ice Cream", 4)
 def remove_item(list_hash, item)
 	list_hash.delete_if {|key, value| key == item }
 
-# p list_hash
+	return list_hash
 
 end
 
@@ -129,7 +132,7 @@ def update_quantity_number(list_hash, item, new_quantity)
 		list_hash[item] = new_quantity
 	end
 
-# p list_hash
+	return list_hash
 
 end
 
