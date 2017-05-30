@@ -1,4 +1,7 @@
 # Challenge 6.3: Attributes
+
+# https://repl.it/IXaS/1
+
 # Release 0: Bring Santa to Life
 
 # Eventually, your simulator will build thousands of Santas, 
