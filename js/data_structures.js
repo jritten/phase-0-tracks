@@ -1,4 +1,7 @@
 // Challenge 7.2: Data Structures
+
+// https://repl.it/IZpT/1
+
 // Release 0: Work with Arrays
 
 // In your new file, declare two separate arrays:
@@ -12,6 +15,11 @@
 var names = ["Secretariat", "Sea Biscuit", "Man o' War", "Red Rum", "American Pharaoh"];
 var colors = ["palomino", "cremello", "buckskin", "perlino", "smoky black"];
 
+// add name to array
+names.push("Boo")
+// add color to array
+color.push("aquamarine")
+
 // Release 1: Build an Object
 
 // We need to assign colors to horses. In data_structures.js, add code that will 
@@ -21,9 +29,15 @@ var colors = ["palomino", "cremello", "buckskin", "perlino", "smoky black"];
 // the same length. This is a logical reasoning step -- try to think it through 
 // instead of Googling it.
 
+var horses = {}
+
 function Horse(name, color) {
 	this.name = name;
 	this.color = color;
+
+	for (var i = 0; i < colors.length; i++) {
+	horses[names[i]] = colors[i];
+
 }
 
 var newHorse = new Horse(names.sample, colors.sample);
@@ -37,6 +51,18 @@ console.log(newHorse);
 // it a few different properties of various data types, including at least one 
 // function. Demonstrate that your function works by creating a few cars with it.
 
+function Car(make, model, color) {
+	this.make = make;
+	this.model = model;
+	this.color = color;
+	this.accelerate = function () {console.log('The car begins to accelerate');}
+}
+
+var newCar = new Car("Chevy", "Cruze", "black");
+newCar.accelerate()
+console.log(NewCar)
+console.log(new Cars("Cadillac", "Escalade", "champagne"))
+
 // Release 3: Research on Your Own
 
 // If you wanted to loop through the keys and values of an object, 
@@ -44,4 +70,3 @@ console.log(newHorse);
 // and some gotchas that can happen depending on your approach.)
 // Are there advantages to using constructor functions to create objects? 
 // Disadvantages? 
-
