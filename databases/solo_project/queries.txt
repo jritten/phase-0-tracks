@@ -1,0 +1,145 @@
+Challenge 8.3 Build a Database
+
+Release 2: Execute SQL Queries
+
+Run a SQL query for each of the following:
+
+1. Display the information in one table:
+
+sqlite> CREATE TABLE swimmers (id INTEGER PRIMARY KEY, stroke VARCHAR(255));  
+
+sqlite> .tables
+
+olympians  swimmers 
+
+sqlite> INSERT INTO swimmers (stroke) VALUES ("Backstroke");
+sqlite> INSERT INTO swimmers (stroke) VALUES ("Breaststroke");
+sqlite> INSERT INTO swimmers (stroke) VALUES ("Butterfly");
+sqlite> INSERT INTO swimmers (stroke) VALUES ("Freestyle");
+
+sqlite> SELECT * FROM swimmers;
+
+1|Backstroke
+2|Breaststroke
+3|Butterfly
+4|Freestyle
+
+sqlite> CREATE TABLE olympians (id INTEGER PRIMARY KEY, country VARCHAR(255), swimmer VARCHAR(255), gold_medals INT, team VARCHAR(255), nickname VARCHAR(255), stroke_id INT, FOREIGN KEY (stroke_id) REFERENCES swimmers(id));
+
+sqlite> SELECT * FROM olympians;
+
+1|USA|Michael Phelps|23|University of Michigan|Flying Fish|4
+2|USA|Mark Spitz|9|Indiana University|Mark the Shark|4
+3|USA|Jennifer Thompson|8|Stanford University|Jenny|3
+4|USA|Ryan Lochte|6|Florida University|The Lochtenator|1
+5|Australia|Ian Thorpe|5|Macquarie University|Thorpedo|4
+6|USA|Melissa Franklin|5|U of C Berkley|Missy|1
+
+
+2. Update an item that meets some condition:
+
+sqlite> UPDATE olympians SET nickname="The Baltimore Bullet" WHERE swimmer="Michael Phelps";
+
+sqlite> UPDATE olympians SET stroke_id=2 WHERE nickname="Missy";
+
+sqlite> SELECT * FROM olympians;
+
+1|USA|Michael Phelps|23|University of Michigan|The Baltimore Bullet|4
+2|USA|Mark Spitz|9|Indiana University|Mark the Shark|4
+3|USA|Jennifer Thompson|8|Stanford University|Jenny|3
+4|USA|Ryan Lochte|6|Florida University|The Lochtenator|1
+5|Australia|Ian Thorpe|5|Macquarie University|Thorpedo|4
+6|USA|Melissa Franklin|5|U of C Berkley|Missy|2
+
+
+3. Display the information in both tables using one query:
+
+sqlite> SELECT * FROM olympians, swimmers WHERE olympians.stroke_id = swimmers.id;
+
+1|USA|Michael Phelps|23|University of Michigan|The Baltimore Bullet|4|4|Freestyle
+2|USA|Mark Spitz|9|Indiana University|Mark the Shark|4|4|Freestyle
+3|USA|Jennifer Thompson|8|Stanford University|Jenny|3|3|Butterfly
+4|USA|Ryan Lochte|6|Florida University|The Lochtenator|1|1|Backstroke
+5|Australia|Ian Thorpe|5|Macquarie University|Thorpedo|4|4|Freestyle
+6|USA|Melissa Franklin|5|U of C Berkley|Missy|2|2|Breaststroke
+
+sqlite> SELECT * FROM swimmers, olympians WHERE olympians.stroke_id = swimmers.id;
+
+4|Freestyle|1|USA|Michael Phelps|23|University of Michigan|The Baltimore Bullet|4
+4|Freestyle|2|USA|Mark Spitz|9|Indiana University|Mark the Shark|4
+3|Butterfly|3|USA|Jennifer Thompson|8|Stanford University|Jenny|3
+1|Backstroke|4|USA|Ryan Lochte|6|Florida University|The Lochtenator|1
+2|Breaststroke|6|USA|Melissa Franklin|5|U of C Berkley|Missy|2
+
+
+4. Display a narrower selection of columns from both tables using one query:
+
+sqlite> SELECT olympians.country, olympians.nickname, olympians.stroke_id FROM olympians, swimmers WHERE olympians.stroke_id = swimmers.id;
+
+USA|The Baltimore Bullet|4
+USA|Mark the Shark|4
+USA|Jenny|3
+USA|The Lochtenator|1
+Australia|Thorpedo|4
+USA|Missy|2
+
+sqlite> SELECT olympians.country, olympians.nickname, swimmers.stroke FROM olympians, swimmers WHERE olympians.stroke_id = swimmers.id;
+
+USA|The Baltimore Bullet|Freestyle
+USA|Mark the Shark|Freestyle
+USA|Jenny|Butterfly
+USA|The Lochtenator|Backstroke
+Australia|Thorpedo|Freestyle
+USA|Missy|Breaststroke
+
+
+5. Delete an item that meets some condition:
+
+sqlite> DELETE FROM olympians WHERE country="Australia";
+
+sqlite> SELECT * FROM olympians;
+
+1|USA|Michael Phelps|23|University of Michigan|The Baltimore Bullet|4
+2|USA|Mark Spitz|9|Indiana University|Mark the Shark|4
+3|USA|Jennifer Thompson|8|Stanford University|Jenny|3
+4|USA|Ryan Lochte|6|Florida University|The Lochtenator|1
+6|USA|Melissa Franklin|5|U of C Berkley|Missy|2
+
+
+Release 3: Research on Your Own
+
+1. There are lots of different kinds of joins. What are they? Can you apply different conditions to a join to change what's displayed?
+
+Different Types of JOINs in SQL:
+
+(INNER) JOIN: Returns records that have matching values in both tables
+
+LEFT (OUTER) JOIN: Return all records from the left table, and the matched records from the right table
+
+RIGHT (OUTER) JOIN: Return all records from the right table, and the matched records from the left table
+
+FULL (OUTER) JOIN: Return all records when there is a match in either left or right table
+
+
+2. Can you bookmark any good diagrams that will help you tell different joins apart in the future?
+
+https://www.w3schools.com/sql/sql_join.asp
+
+
+3. Try a few different joins in your database, and record the commands and the output in queries.txt.
+
+sqlite> SELECT stroke FROM swimmers LEFT JOIN olympians ON swimmers.stroke = olympians.stroke_id;
+
+Backstroke
+Breaststroke
+Butterfly
+Freestyle
+sqlite> 
+
+sqlite> SELECT stroke_id FROM olympians LEFT JOIN swimmers ON olympians.stroke_id = swimmers.stroke;
+
+4
+4
+3
+1
+2
